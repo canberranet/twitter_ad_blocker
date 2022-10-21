@@ -8,7 +8,7 @@ var youMightLikeSvgPath = 'M18.265 3.314c-3.45-3.45-9.07-3.45-12.52 0-3.45 3.44-
 
 function getAds() {
   return Array.from(document.querySelectorAll('div')).filter(function(el) {
-   var filteredAd;
+    var filteredAd;
 
     if (el.getInnerHTML().includes(sponsoredSvgPath)) {
       filteredAd = el;
