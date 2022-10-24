@@ -17,6 +17,7 @@ function getAds() {
     } else if (el.innerText == 'Promoted Tweet') { // TODO: bring back multi-lingual support from git history
       filteredAd = el;
     }
+
     return filteredAd;
   }).concat(Array.from(document.querySelectorAll('span')).filter(s=>s.getInnerHTML().includes('Promoted')))
 }
@@ -34,7 +35,7 @@ function hideAd(ad) {
   } else if (ad.closest(articleSelector) !== null) {
     ad.closest(articleSelector).remove();
     adsHidden += 1;
-  } else if (ad.innerText == 'Promoted By') {
+  } else if (ad.innerText == 'Promoted Tweet') {
     ad.remove();
     adsHidden += 1;
   }
@@ -52,4 +53,3 @@ new PerformanceObserver((entryList) => {
 
 // re-check as user scrolls
 document.addEventListener('scroll', () => getAds().forEach(hideAd));
-
